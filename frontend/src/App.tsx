@@ -1,13 +1,23 @@
 import "./App.css";
-import { Button } from "./ui/components/Button";
+import { BarcodeScanPage } from "./ui/pages/BarcodeScanPage";
+import { HomePage } from "./ui/pages/HomePage";
+
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+const AppContent: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/barcode-scan" element={<BarcodeScanPage />} />
+    </Routes>
+  );
+};
 
 function App() {
   return (
-    <div className="grid grid-cols-3 gap-4">
-      <Button onClick={() => {}}>Lecture de code barre</Button>
-      <Button onClick={() => {}}>Impression de ticket</Button>
-      <Button onClick={() => {}}>Ouverture tiroir</Button>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
