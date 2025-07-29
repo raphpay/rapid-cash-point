@@ -3,6 +3,7 @@ const { app, BrowserWindow, ipcMain, session } = require("electron");
 const path = require("path");
 const printTicket = require("./backend/printTicket");
 const openCashDrawer = require("./backend/openCashDrawer");
+const openDrawerRaw = require("./backend/openDrawerRaw");
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -49,6 +50,10 @@ async function createWindow() {
 
   ipcMain.handle("open-cash-drawer", async () => {
     return await openCashDrawer();
+  });
+
+  ipcMain.handle("open-drawer-raw", async () => {
+    await openDrawerRaw();
   });
 
   await win.loadURL(

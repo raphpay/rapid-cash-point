@@ -33,11 +33,15 @@ export const ReceiptPrintingPage = () => {
   };
 
   return (
-    <div className="p-8 flex flex-col items-center gap-2">
+    <div className="grid grid-cols-2 gap-2">
       <Button onClick={handlePrint}>Impression simple</Button>
-      <Button onClick={handlePrintTicket}>Impression ticket</Button>
-      {error && <p className="text-red-500">{error}</p>}
+      <div className="flex flex-col">
+        <Button onClick={handlePrintTicket}>Impression ticket</Button>
+        {error && <p className="text-red-500">{error}</p>}
+      </div>
       <Button
+        className="col-span-2"
+        variant="ghost"
         onClick={() => {
           navigate("/");
         }}

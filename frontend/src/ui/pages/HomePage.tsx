@@ -5,11 +5,6 @@ import { Button } from "../components/Button";
 export const HomePage = () => {
   const navigate = useNavigate();
 
-  function openDrawer() {
-    // @ts-ignore
-    window.ipc.openCashDrawer();
-  }
-
   useEffect(() => {
     // @ts-ignore
     window.ipc.send("set-title", "Ma caisse");
@@ -31,7 +26,13 @@ export const HomePage = () => {
       >
         Impression de ticket
       </Button>
-      <Button onClick={openDrawer}>Ouverture tiroir</Button>
+      <Button
+        onClick={() => {
+          navigate("/drawer");
+        }}
+      >
+        Ouverture tiroir
+      </Button>
     </div>
   );
 };

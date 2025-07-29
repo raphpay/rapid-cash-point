@@ -22,6 +22,7 @@ const ipcHandler = {
   },
   printTicket: (args) => ipcRenderer.invoke("print-ticket", args),
   openCashDrawer: () => ipcRenderer.invoke("open-cash-drawer"),
+  openDrawerRaw: () => ipcRenderer.invoke("open-drawer-raw"),
 };
 
 contextBridge.exposeInMainWorld("ipc", ipcHandler);
