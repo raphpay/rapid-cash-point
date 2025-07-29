@@ -9,6 +9,7 @@ const AppContent: React.FC = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/barcode-scan" element={<BarcodeScanPage />} />
+      <Route path="/ticket-printing" element={<BarcodeScanPage />} />
     </Routes>
   );
 };

@@ -12,7 +12,13 @@ export const HomePage = () => {
       >
         Lecture de code barre
       </Button>
-      <Button onClick={() => {}}>Impression de ticket</Button>
+      <Button
+        onClick={() => {
+          navigate("/ticket-printing");
+        }}
+      >
+        Impression de ticket
+      </Button>
       <Button onClick={() => {}}>Ouverture tiroir</Button>
     </div>
   );
