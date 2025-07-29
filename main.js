@@ -2,6 +2,7 @@
 const { app, BrowserWindow, ipcMain, session } = require("electron");
 const path = require("path");
 const printTicket = require("./backend/printTicket");
+const openCashDrawer = require("./backend/openCashDrawer");
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
@@ -42,16 +43,12 @@ async function createWindow() {
     win.setTitle(title);
   });
 
-  ipcMain.on("request-greeting", (_event, greeting) => {
-    win.webContents.send("greeting", `Hello: ${greeting}`);
-  });
-
-  ipcMain.handle("test-invoke", (_event, args) => {
-    console.log("Receiving", args.username, args.password);
-  });
-
   ipcMain.handle("print-ticket", (_event, args) => {
     return printTicket(args);
+  });
+
+  ipcMain.handle("open-cash-drawer", async () => {
+    return await openCashDrawer();
   });
 
   await win.loadURL(

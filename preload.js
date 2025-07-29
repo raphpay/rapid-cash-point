@@ -20,8 +20,8 @@ const ipcHandler = {
   clear(channel) {
     ipcRenderer.removeAllListeners(channel);
   },
-  testInvoke: (args) => ipcRenderer.invoke("test-invoke", args),
   printTicket: (args) => ipcRenderer.invoke("print-ticket", args),
+  openCashDrawer: () => ipcRenderer.invoke("open-cash-drawer"),
 };
 
 contextBridge.exposeInMainWorld("ipc", ipcHandler);
