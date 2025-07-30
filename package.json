@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0",
+  "name": "rapid-cash-point",
+  "main": "main.js",
+  "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
+    "concurrently": "^9.2.0",
+    "cross-env": "^10.0.0",
+    "electron": "^37.2.4",
+    "wait-on": "^8.0.4"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
+    "node-thermal-printer": "^4.5.0"
+  },
+  "scripts": {
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "dev": "concurrently -k -n \"FRONTEND,ELECTRON\" -c \"cyan,magenta\" \"yarn frontend\" \"wait-on http://localhost:5173 && electron .\"",
+    "frontend": "cd frontend && yarn dev",
+    "build": "cd frontend && yarn build"
+  },
+  "license": "MIT"
+}
