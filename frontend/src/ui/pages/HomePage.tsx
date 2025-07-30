@@ -40,6 +40,13 @@ export const HomePage = () => {
       >
         Inventaire
       </Button>
+      <Button
+        onClick={() => {
+          navigate("/pos");
+        }}
+      >
+        Caisse
+      </Button>
     </div>
   );
 };

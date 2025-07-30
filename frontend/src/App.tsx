@@ -6,6 +6,7 @@ import { BarcodeScanPage } from "./ui/pages/BarcodeScanPage";
 import { DrawerPage } from "./ui/pages/DrawerPage";
 import { HomePage } from "./ui/pages/HomePage";
 import { InventoryPage } from "./ui/pages/InventoryPage";
+import POSPage from "./ui/pages/POSPage";
 import { ReceiptPrintingPage } from "./ui/pages/ReceiptPrintingPage";
 
 const AppContent: React.FC = () => {
@@ -16,6 +17,7 @@ const AppContent: React.FC = () => {
       <Route path="/ticket-printing" element={<ReceiptPrintingPage />} />
       <Route path="/drawer" element={<DrawerPage />} />
       <Route path="/inventory" element={<InventoryPage />} />
+      <Route path="/pos" element={<POSPage />} />
     </Routes>
   );
 };
