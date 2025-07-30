@@ -33,6 +33,13 @@ export const HomePage = () => {
       >
         Ouverture tiroir
       </Button>
+      <Button
+        onClick={() => {
+          navigate("/inventory");
+        }}
+      >
+        Inventaire
+      </Button>
     </div>
   );
 };
